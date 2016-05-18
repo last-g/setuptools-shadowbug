@@ -1,3 +1,6 @@
 #!/bin/bash
 
-docker run -i --rm -v `pwd`:/tmp/shadowbug 'ubuntu:trusty' sh -c  'cp -R /tmp/shadowbug /shadowbug && cd /shadowbug && bash bug.sh 2>/dev/null'
+DIR='shadowbug'
+TAG=${TAG-trusty}
+
+docker run -i --rm --env "SETUPTOOLS=${SETUPTOOLS}" --env "PIP=${PIP}" -v "`pwd`:/tmp/${DIR}" "ubuntu:${TAG}" sh -c  "cp -R '/tmp/${DIR}' '/${DIR}' && cd '/${DIR}' && bash bug.sh 2>/dev/null"

@@ -7,6 +7,6 @@ setup(
     name='setuptools-shadowbug',
     author='Last G',
     install_requires=[
-        'six', # Package that present in system installation
+        'six', # Package that present in system package directory (installed via deb package)
     ],
 )
