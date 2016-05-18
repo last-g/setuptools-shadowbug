@@ -22,6 +22,7 @@ echo 'Updating pip&setuptools to actual versions (with bug)'
 pip2 install -U "$PIP" "$SETUPTOOLS" 1>&2  #> /dev/null 2>&1
 hash -r # cleanup bash caches 
 
+python2 -c 'import setuptools; print("Setuptools: " + str(setuptools.__version__))'
 pip2 --version
 GOOD_VERSION=`pip2 --version`
 
