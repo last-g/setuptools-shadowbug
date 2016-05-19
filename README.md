@@ -25,5 +25,6 @@ SETUPTOOLS='setuptools<20' ./check.sh
 
 ```bash
 SETUPTOOLS='git+https://github.com/last-g/setuptools/tree/bug/shadowbug' ./check.sh
+```
 
 ## More in [bug.sh](bug.sh)
