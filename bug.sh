@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -uxe
+
 PIP=${PIP:-'pip==8.1.2'}
 SETUPTOOLS=${SETUPTOOLS:-'setuptools==21.0.0'}
 
@@ -15,11 +17,11 @@ echo
 ###
 echo 'Get system up to date and installing system distributions'
 apt-get update 1>&2  # > /dev/null 2>&1
-apt-get install -y python-pip python-six 1>&2 # > /dev/null 2>&1
+apt-get install -y python-pip python-six git 1>&2 # > /dev/null 2>&1
 
 ###
 echo 'Updating pip&setuptools to actual versions (with bug)'
-pip2 install -U "$PIP" "$SETUPTOOLS" 1>&2  #> /dev/null 2>&1
+pip2 install -U $PIP $SETUPTOOLS 1>&2  #> /dev/null 2>&1
 hash -r # cleanup bash caches 
 
 python2 -c 'import setuptools; print("Setuptools: " + str(setuptools.__version__))'
